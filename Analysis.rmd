@@ -4,6 +4,7 @@ output: html_document
 ---
 
 ```{r load packages}
+#adding the ggplot library
 library("ggplot2")
 ```
 
@@ -17,10 +18,13 @@ head(data)
 
 # plot data
 ```{r plot-gc}
+#changing the 12th column's name
 colnames(data)[12] <- "percent.GC"
 
+#binning the data
 data$GC.binned <- cut(data$percent.GC, 5)
 
+#plotting the data
 ggplot(data) + geom_bar(aes(x = GC.binned))
 ```
 
